@@ -445,7 +445,7 @@ MonoBehaviour:
     y: 92
     width: 462
     height: 614
-  m_ScrollPosition: {x: 0, y: 774.9551}
+  m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 160
@@ -480,7 +480,7 @@ MonoBehaviour:
     height: 336
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 0c250000
+    m_SelectedIDs: 46010000
     m_LastClickedID: 0
     m_ExpandedIDs: e0fbffff00000000
     m_RenameOverlay:
