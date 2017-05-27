@@ -20,7 +20,7 @@ public class FootballBehaviour : MonoBehaviour {
 
     public Sprite[] array;
 
-    float pastTime = 0.0f;
+    float pastTime = 0.6f;
     int index = 0;
 
     public FootballCar car;
@@ -67,6 +67,7 @@ public class FootballBehaviour : MonoBehaviour {
                     
                 if (counter > 3)
                 {
+                    m_direction = 1.0f;
                     currentState = FootballStates.ChildrenMissing;
                     m_degrees = 0.0f;
                 }
@@ -76,14 +77,9 @@ public class FootballBehaviour : MonoBehaviour {
                 // Move center along x axis
                 float movementY = deltaTime * m_speed * 0.5f;
                 m_centerPosition.y += m_direction * movementY;
-
-                // Update degrees
-                float degreesPerSecond = 360.0f / m_period;
-                m_degrees = Mathf.Repeat(m_degrees + (deltaTime * degreesPerSecond), 360.0f);
-                float radians = m_degrees * Mathf.Deg2Rad;
-
+                    
                 // Offset by sin wave
-                Vector3 offset = new Vector3(-m_amplitude * 0.5f * Mathf.Sin(radians), 0.0f, 0.0f);
+                Vector3 offset = new Vector3(-m_amplitude * 0.2f, 0.0f, 0.0f);
                 transform.position = m_centerPosition + offset;
                 transform.Rotate(Vector3.forward * m_direction * 250.0f * deltaTime);
             }
@@ -109,26 +105,23 @@ public class FootballBehaviour : MonoBehaviour {
                 }
             } break;
         }
-        
-
-
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Football_Child1"))
         {
-            if (currentState == FootballStates.ChildrenPlay)
-            {
-                counter++;
-            }
+            currentState = FootballStates.ChildrenPlay;
+            counter++;
 
             m_direction = 1.0f;
                         
         }
         else if (other.CompareTag("Football_Child2"))
         {
-            m_direction = -1.0f;
+            currentState = FootballStates.ChildrenPlay;
             counter++;
+
+            m_direction = -1.0f;
         }
         else if (other.CompareTag("Street"))
         {
@@ -137,6 +130,11 @@ public class FootballBehaviour : MonoBehaviour {
         else if (other.CompareTag("Car"))
         {
             currentState = FootballStates.Die;
+        }
+        else if (other.CompareTag("MainCharacter"))
+        {
+            m_direction = -1.0f;
+            counter = 0;
         }
     }
 }

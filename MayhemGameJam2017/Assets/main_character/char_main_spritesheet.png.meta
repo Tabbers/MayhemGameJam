@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 91f35a70ccb8b454a8a6d16b82cb21d1
-timeCreated: 1495871522
+guid: d501ccfe103de604b94b9a8cea6a2b5f
+timeCreated: 1495899350
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,16 @@ TextureImporter:
     21300012: char_main_spritesheet_6
     21300014: char_main_spritesheet_7
     21300016: char_main_spritesheet_8
+    21300018: char_main_spritesheet_9
+    21300020: char_main_spritesheet_10
+    21300022: char_main_spritesheet_12
+    21300024: char_main_spritesheet_13
+    21300026: char_main_spritesheet_14
+    21300028: char_main_spritesheet_15
+    21300030: char_main_spritesheet_17
+    21300032: char_main_spritesheet_18
+    21300034: char_main_spritesheet_19
+    21300036: char_main_spritesheet_20
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -91,7 +101,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1280
+        y: 1920
         width: 480
         height: 640
       alignment: 0
@@ -104,7 +114,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 1280
+        y: 1920
         width: 480
         height: 640
       alignment: 0
@@ -117,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 960
-        y: 1280
+        y: 1920
         width: 480
         height: 640
       alignment: 0
@@ -129,8 +139,8 @@ TextureImporter:
       name: char_main_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 640
+        x: 1440
+        y: 1920
         width: 480
         height: 640
       alignment: 0
@@ -142,8 +152,8 @@ TextureImporter:
       name: char_main_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 480
-        y: 640
+        x: 1920
+        y: 1920
         width: 480
         height: 640
       alignment: 0
@@ -155,8 +165,8 @@ TextureImporter:
       name: char_main_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 960
-        y: 640
+        x: 2400
+        y: 1920
         width: 480
         height: 640
       alignment: 0
@@ -169,7 +179,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1280
         width: 480
         height: 640
       alignment: 0
@@ -182,7 +192,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 0
+        y: 1280
         width: 480
         height: 640
       alignment: 0
@@ -195,6 +205,136 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 960
+        y: 1280
+        width: 480
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_main_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1280
+        width: 480
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_main_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1280
+        width: 480
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_main_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 480
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_main_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 640
+        width: 480
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_main_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 480
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_main_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 623
+        width: 480
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_main_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 480
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_main_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 480
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_main_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 480
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char_main_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 1440
         y: 0
         width: 480
         height: 640

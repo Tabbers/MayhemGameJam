@@ -169,7 +169,7 @@ Animator:
   m_GameObject: {fileID: 1344006536431550}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 16dbd768fdf6c3f4e8d13eebb8cc3754, type: 2}
+  m_Controller: {fileID: 9100000, guid: 97656a0fb5cf11e4a87b4de892ebd5c8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -189,9 +189,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigameState: 0
-  movementSpeed: 10
+  maxMovementSpeed: 10
+  currentMovementSpeed: 2
+  acceleration: 100
   position: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
+  orientation: 0
 --- !u!212 &212082874397600682
 SpriteRenderer:
   m_ObjectHideFlags: 1
