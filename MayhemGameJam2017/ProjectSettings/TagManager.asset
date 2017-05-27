@@ -12,6 +12,7 @@ TagManager:
   - Football_Child2
   - Football
   - Street
+  - Car
   layers:
   - Default
   - TransparentFX

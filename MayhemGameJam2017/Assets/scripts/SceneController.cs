@@ -41,11 +41,14 @@ public class SceneController : MonoBehaviour {
         if (currentScene.buildIndex != 0)
         {
             player = GameObject.FindGameObjectWithTag("MainCharacter");
+            main_character_controller characterController = player.GetComponent<main_character_controller>();
             switch (currentScene.buildIndex)
             {
-                case 1:
-                    main_character_controller characterController = player.GetComponent<main_character_controller>();
+                case 1:                    
                     characterController.SetMinigameState(main_character_controller.EMinigameState.EUmbrella);
+                    break;
+                case 2:
+                    characterController.SetMinigameState(main_character_controller.EMinigameState.EFootball);
                     break;
                 default:
                     break;

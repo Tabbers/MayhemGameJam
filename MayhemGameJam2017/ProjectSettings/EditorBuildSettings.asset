@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/rain_umbrella.unity
     guid: b52d27789d4a4924687e37b4fc464393
+  - enabled: 1
+    path: Assets/scenes/children_football.unity
+    guid: 82caee415a168b14f8ca289561a6c3b6
