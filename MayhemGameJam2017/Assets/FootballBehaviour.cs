@@ -28,10 +28,11 @@ public class FootballBehaviour : MonoBehaviour {
     public FootballCar car;
     public FootballChild child1;
     public FootballChild child2;
+    public main_character_controller character;
 
     public AudioClip bounce;
     public AudioClip pop;
-
+    
     private AudioSource player;
     enum FootballStates
     {
