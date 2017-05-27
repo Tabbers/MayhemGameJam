@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FootballBehaviour : MonoBehaviour {
-
-    float traveledX;
-    float traveledY;
+    
     Vector3 m_centerPosition;
     float m_degrees;
 
@@ -25,10 +23,13 @@ public class FootballBehaviour : MonoBehaviour {
     float pastTime = 0.0f;
     int index = 0;
 
+    public FootballCar car;
+
     enum FootballStates
     {
         ChildrenPlay,
         ChildrenMissing,
+        Stop,
         Die
     };
 
@@ -38,7 +39,6 @@ public class FootballBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start() {
         m_centerPosition = transform.position;
-        traveledX = 0.0f;
         GetComponent<SpriteRenderer>().sprite = array[index++];
     }
 
@@ -68,13 +68,14 @@ public class FootballBehaviour : MonoBehaviour {
                 if (counter > 3)
                 {
                     currentState = FootballStates.ChildrenMissing;
+                    m_degrees = 0.0f;
                 }
             } break;
             case FootballStates.ChildrenMissing:
             {
                 // Move center along x axis
-                float movementX = deltaTime * m_speed;
-                m_centerPosition.x += m_direction * movementX;
+                float movementY = deltaTime * m_speed * 0.5f;
+                m_centerPosition.y += m_direction * movementY;
 
                 // Update degrees
                 float degreesPerSecond = 360.0f / m_period;
@@ -82,18 +83,29 @@ public class FootballBehaviour : MonoBehaviour {
                 float radians = m_degrees * Mathf.Deg2Rad;
 
                 // Offset by sin wave
-                Vector3 offset = new Vector3(0.0f, m_amplitude * Mathf.Sin(radians), 0.0f);
+                Vector3 offset = new Vector3(-m_amplitude * 0.5f * Mathf.Sin(radians), 0.0f, 0.0f);
                 transform.position = m_centerPosition + offset;
-                transform.Rotate(Vector3.back * m_direction * 250.0f * deltaTime);
+                transform.Rotate(Vector3.forward * m_direction * 250.0f * deltaTime);
+            }
+            break;
+            case FootballStates.Stop:
+            {
+                transform.rotation = Quaternion.identity;
+                if (car)
+                {
+                    car.StartCar();
+                }
+                
             }
             break;
             case FootballStates.Die:
             {
                 pastTime += deltaTime;
-                if (pastTime > 1.0f && index <= 4)
+                const float dieTime = 0.5f;
+                if (pastTime > dieTime && index <= 3)
                 {
                     GetComponent<SpriteRenderer>().sprite = array[index++];
-                    pastTime -= 1.0f;
+                    pastTime -= dieTime;
                 }
             } break;
         }
@@ -105,8 +117,13 @@ public class FootballBehaviour : MonoBehaviour {
     {
         if (other.CompareTag("Football_Child1"))
         {
+            if (currentState == FootballStates.ChildrenPlay)
+            {
+                counter++;
+            }
+
             m_direction = 1.0f;
-            counter++;
+                        
         }
         else if (other.CompareTag("Football_Child2"))
         {
@@ -114,6 +131,10 @@ public class FootballBehaviour : MonoBehaviour {
             counter++;
         }
         else if (other.CompareTag("Street"))
+        {
+            currentState = FootballStates.Stop;
+        }
+        else if (other.CompareTag("Car"))
         {
             currentState = FootballStates.Die;
         }
