@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MoveSlider : MonoBehaviour
 {
-	public Text value;
 	public float speed = 1;
 	private Slider slider;
 	private bool reverse = false;
@@ -38,6 +37,5 @@ public class MoveSlider : MonoBehaviour
 			}
 		}
 		slider.value = progress;
-		value.text = (slider.value*100).ToString("###");
 	}
 }

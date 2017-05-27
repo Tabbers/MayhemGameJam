@@ -10,7 +10,7 @@ public class ArrowMovement : MonoBehaviour
 		Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 		diff.Normalize();
 
-		float rot_z = Mathf.Clamp(Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg, -30, 70);
+		float rot_z = Mathf.Clamp(Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg, 15, 70);
 		transform.rotation = Quaternion.Euler(0f, 0f, rot_z);
 	}
 }

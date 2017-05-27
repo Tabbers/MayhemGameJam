@@ -1,9 +1,21 @@
 fileFormatVersion: 2
 guid: a49a2850da2d9504da60238554a7427c
-timeCreated: 1495899408
+timeCreated: 1495906160
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: dog_spritsheet_1
+    21300002: dog_spritsheet_2
+    21300004: dog_spritsheet_3
+    21300006: dog_spritsheet_4
+    21300008: dog_spritsheet_6
+    21300010: dog_spritsheet_7
+    21300012: dog_spritsheet_8
+    21300014: dog_spritsheet_10
+    21300016: dog_spritsheet_13
+    21300018: dog_spritsheet_14
+    21300020: dog_spritsheet_15
+    21300022: dog_spritsheet_16
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +70,173 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: dog_spritsheet_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 335
+        width: 170
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dog_spritsheet_2
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 416
+        width: 206
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dog_spritsheet_3
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 344
+        width: 162
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dog_spritsheet_4
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 340
+        width: 200
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dog_spritsheet_6
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 231
+        width: 247
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dog_spritsheet_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 136
+        width: 171
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dog_spritsheet_8
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 159
+        width: 162
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dog_spritsheet_10
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 136
+        width: 127
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dog_spritsheet_13
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 2
+        width: 161
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dog_spritsheet_14
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 0
+        width: 172
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dog_spritsheet_15
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1
+        width: 170
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dog_spritsheet_16
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 7
+        width: 166
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
