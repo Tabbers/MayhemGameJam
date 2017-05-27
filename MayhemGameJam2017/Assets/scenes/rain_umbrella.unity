@@ -242,40 +242,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 61561094714589118, guid: b4b46ce4f5940dd4298a9ecc01ec504b,
+    - target: {fileID: 114462895342309954, guid: b4b46ce4f5940dd4298a9ecc01ec504b,
         type: 2}
-      propertyPath: m_Size.x
-      value: 5
+      propertyPath: currentMovementSpeed
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 61561094714589118, guid: b4b46ce4f5940dd4298a9ecc01ec504b,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 61561094714589118, guid: b4b46ce4f5940dd4298a9ecc01ec504b, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4b46ce4f5940dd4298a9ecc01ec504b, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &446486384 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1344006536431550, guid: b4b46ce4f5940dd4298a9ecc01ec504b,
-    type: 2}
-  m_PrefabInternal: {fileID: 446486383}
---- !u!70 &446486385
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446486384}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 4.8, y: 6.4}
-  m_Direction: 0
 --- !u!1001 &1110041983
 Prefab:
   m_ObjectHideFlags: 0
