@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class MoveSlider : MonoBehaviour
 {
 	public Text value;
-	public ArrowMovement arrow;
 	public float speed = 1;
 	private Slider slider;
 	private bool reverse = false;
-	private float progress = 0;
+	[HideInInspector]
+	public float progress = 0;
 
 	// Use this for initialization
 	void Start ()
@@ -38,7 +38,6 @@ public class MoveSlider : MonoBehaviour
 			}
 		}
 		slider.value = progress;
-		arrow.force = slider.value;
 		value.text = (slider.value*100).ToString("###");
 	}
 }

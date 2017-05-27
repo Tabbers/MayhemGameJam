@@ -11,7 +11,7 @@ public class Stick : MonoBehaviour
 	public void throwStick(float velocity)
 	{
 		Vector3 rotatedNormalizedVector = gameObject.transform.rotation * Vector2.right;
-		rotatedNormalizedVector.Normalize ();
+		rotatedNormalizedVector.Normalize();
 		Vector2 forceVector = rotatedNormalizedVector * (velocity * 800);
 		gameObject.GetComponent<Rigidbody2D>().AddForce(forceVector);
 	}
