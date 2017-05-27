@@ -23,7 +23,11 @@ public class FootballBehaviour : MonoBehaviour {
     float pastTime = 0.6f;
     int index = 0;
 
+    int winCount = 0;
+
     public FootballCar car;
+    public FootballChild child1;
+    public FootballChild child2;
 
     enum FootballStates
     {
@@ -79,9 +83,9 @@ public class FootballBehaviour : MonoBehaviour {
                 m_centerPosition.y += m_direction * movementY;
                     
                 // Offset by sin wave
-                Vector3 offset = new Vector3(-m_amplitude * 0.2f, 0.0f, 0.0f);
-                transform.position = m_centerPosition + offset;
-                transform.Rotate(Vector3.forward * m_direction * 250.0f * deltaTime);
+                Vector3 offset = new Vector3(-m_amplitude * 0.08f, 0.0f, 0.0f);
+                transform.position = m_centerPosition;
+                transform.Rotate(Vector3.forward * 250.0f * deltaTime);
             }
             break;
             case FootballStates.Stop:
@@ -103,6 +107,16 @@ public class FootballBehaviour : MonoBehaviour {
                     GetComponent<SpriteRenderer>().sprite = array[index++];
                     pastTime -= dieTime;
                 }
+                else if (index == 4)
+                {
+                    if (child1 && child2)
+                    {
+                        child1.MakeSad();
+                        child2.MakeSad();
+                    }
+                    
+                    index++;
+                }
             } break;
         }
     }
@@ -110,18 +124,35 @@ public class FootballBehaviour : MonoBehaviour {
     {
         if (other.CompareTag("Football_Child1"))
         {
-            currentState = FootballStates.ChildrenPlay;
-            counter++;
+            if (winCount < 3)
+            {
+                currentState = FootballStates.ChildrenPlay;
+                counter++;
 
-            m_direction = 1.0f;
-                        
+                m_direction = 1.0f;
+            }
+            else
+            {
+                child1.MakeHappy();
+                child2.MakeHappy();
+                Destroy(this);
+            }           
         }
         else if (other.CompareTag("Football_Child2"))
         {
-            currentState = FootballStates.ChildrenPlay;
-            counter++;
+            if (winCount < 3)
+            {
+                currentState = FootballStates.ChildrenPlay;
+                counter++;
 
-            m_direction = -1.0f;
+                m_direction = -1.0f;
+            }
+            else
+            {
+                child1.MakeHappy();
+                child2.MakeHappy();
+                Destroy(this);
+            }
         }
         else if (other.CompareTag("Street"))
         {
@@ -135,6 +166,7 @@ public class FootballBehaviour : MonoBehaviour {
         {
             m_direction = -1.0f;
             counter = 0;
+            winCount++;
         }
     }
 }
