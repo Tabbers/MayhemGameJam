@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Menu_Main.unity
+    guid: b81f3ffd677bc594cb6b1503ef30ce02
+  - enabled: 1
+    path: Assets/scenes/rain_umbrella.unity
+    guid: b52d27789d4a4924687e37b4fc464393

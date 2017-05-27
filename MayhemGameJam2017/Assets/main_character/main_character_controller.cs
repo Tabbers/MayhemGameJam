@@ -13,8 +13,14 @@ public class main_character_controller : MonoBehaviour
     };
 
     public EMinigameState minigameState;
+    public float movementSpeed = 10.0f;
+    public Vector3 position;
+    public Quaternion rotation;
 
-    void SetMinigameState(EMinigameState minigameState)
+    Vector3 right = new Vector3(1.0f, 0.0f);
+    Vector3 up = new Vector3(0.0f, 1.0f);
+
+    public void SetMinigameState(EMinigameState minigameState)
     {
         this.minigameState = minigameState;
     }
@@ -23,10 +29,14 @@ public class main_character_controller : MonoBehaviour
 	void Start ()
     {
         minigameState = EMinigameState.EFootball;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+        //get Position and Rotation Reference
+        position = gameObject.transform.position;
+        rotation = gameObject.transform.rotation;
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
 		switch(minigameState)
         {
@@ -46,6 +56,6 @@ public class main_character_controller : MonoBehaviour
 	}
     private void Umbrella_Main()
     {
-
+        position += right * movementSpeed;
     }
 }
