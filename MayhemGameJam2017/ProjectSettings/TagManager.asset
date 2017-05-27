@@ -8,6 +8,10 @@ TagManager:
   - SceneGeometry_static
   - SceneGeometry_dynamic
   - Controller
+  - Football_Child1
+  - Football_Child2
+  - Football
+  - Street
   layers:
   - Default
   - TransparentFX
