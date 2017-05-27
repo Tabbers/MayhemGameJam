@@ -13,6 +13,7 @@ TagManager:
   - Football
   - Street
   - Car
+  - bg
   layers:
   - Default
   - TransparentFX
