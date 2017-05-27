@@ -10,11 +10,6 @@ public class SceneController : MonoBehaviour {
 
     public GameObject player;
     public Scene currentScene;
-
-    public const int maxLevelCount = 3;
-    public int numberOfTravels = 0;
-    public int currentLevel = -1;
-    public int nextlevel = 0;
     // Use this for initialization
 
     void Awake()
@@ -24,6 +19,7 @@ public class SceneController : MonoBehaviour {
             Debug.Log("preserved" + gameObject.name);
             //if not, set instance to this
             instance = this;
+            DataStorage.Randomise();
             SceneManager.sceneLoaded += OnLevelFinishedLoading;
             DontDestroyOnLoad(gameObject);            
         }
@@ -41,8 +37,6 @@ public class SceneController : MonoBehaviour {
     }
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        currentLevel = nextlevel;
-        nextlevel = Mathf.FloorToInt(Random.value * 2);
         currentScene = SceneManager.GetActiveScene();
         if (currentScene.buildIndex != 0)
         {
@@ -66,13 +60,19 @@ public class SceneController : MonoBehaviour {
 	}
     public void LoadLevel(int index)
     {
-        numberOfTravels++;
-        SceneManager.LoadScene(index);
+        DataStorage.currentLevel++;
+        if (DataStorage.currentLevel < DataStorage.maxNumberOfLevels)
+        {
+            SceneManager.LoadScene(index);
+        }
     }
     public void LoadNextLevel()
     {
-        numberOfTravels++;
-        SceneManager.LoadScene(nextlevel);
+        DataStorage.currentLevel++;
+        if (DataStorage.currentLevel < DataStorage.maxNumberOfLevels)
+        {
+            SceneManager.LoadScene(DataStorage.levels[DataStorage.currentLevel]);
+        }
     }
     public void Failed()
     {
