@@ -50,6 +50,7 @@ public class main_character_controller : MonoBehaviour
 		switch(minigameState)
         {
             case EMinigameState.EFootball:
+                Football();
                 break;
             case EMinigameState.EBallon:
                 break;
@@ -93,5 +94,10 @@ public class main_character_controller : MonoBehaviour
     {
         Walk();
         // position += right * movementSpeed;
+    }
+
+    void Football()
+    {
+        Walk();
     }
 }
