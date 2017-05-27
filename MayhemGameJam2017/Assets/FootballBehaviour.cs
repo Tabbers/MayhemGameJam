@@ -80,8 +80,8 @@ public class FootballBehaviour : MonoBehaviour {
                     
                 // Offset by sin wave
                 Vector3 offset = new Vector3(-m_amplitude * 0.2f, 0.0f, 0.0f);
-                transform.position = m_centerPosition + offset;
-                transform.Rotate(Vector3.forward * m_direction * 250.0f * deltaTime);
+                transform.position = m_centerPosition;
+                transform.Rotate(Vector3.forward * 250.0f * deltaTime);
             }
             break;
             case FootballStates.Stop:
