@@ -12,6 +12,7 @@ public class main_character_controller : MonoBehaviour
         EStickThrow = 3
     };
 
+    public Animator animctrl;
     public EMinigameState minigameState;
     public float maxMovementSpeed = 10.0f;
     public float currentMovementSpeed = 2.0f;
@@ -38,6 +39,7 @@ public class main_character_controller : MonoBehaviour
         controller = GameObject.FindGameObjectWithTag("Controller").GetComponent <SceneController>();
         Debug.Log(controller);
 
+        animctrl = gameObject.GetComponent<Animator>();
 
         //get Position and Rotation Reference
         position = gameObject.transform.position;
@@ -68,6 +70,7 @@ public class main_character_controller : MonoBehaviour
     {
         if(Input.GetKey("d"))
         {
+            animctrl.SetBool("walking", true);
             position.x += currentMovementSpeed * Time.deltaTime;
             if (orientation >= -0.3f)
             {
@@ -76,8 +79,9 @@ public class main_character_controller : MonoBehaviour
                 transform.localScale = scale;
             }
         }
-        if (Input.GetKey("a"))
+        else if (Input.GetKey("a"))
         {
+            animctrl.SetBool("walking", true);
             position.x -= currentMovementSpeed * Time.deltaTime;
             if (orientation >= 0.3f)
             {
@@ -85,6 +89,10 @@ public class main_character_controller : MonoBehaviour
                 scale.x = -orientation;
                 transform.localScale = scale;
             }
+        }
+        else
+        {
+            animctrl.SetBool("walking", false);
         }
        
         transform.position = position;
