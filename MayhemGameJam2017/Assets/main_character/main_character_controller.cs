@@ -13,9 +13,12 @@ public class main_character_controller : MonoBehaviour
     };
 
     public EMinigameState minigameState;
-    public float movementSpeed = 10.0f;
+    public float maxMovementSpeed = 10.0f;
+    public float currentMovementSpeed = 2.0f;
+    public float acceleration = 100.0f;
     public Vector3 position;
     public Quaternion rotation;
+    public float orientation;
     private SceneController controller;
 
     Vector3 right = new Vector3(1.0f, 0.0f);
@@ -30,6 +33,8 @@ public class main_character_controller : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        orientation = transform.localScale.x;
+
         controller = GameObject.FindGameObjectWithTag("Controller").GetComponent <SceneController>();
         Debug.Log(controller);
 
@@ -58,14 +63,35 @@ public class main_character_controller : MonoBehaviour
 
         }
 	}
+    private void Walk()
+    {
+        if(Input.GetKey("d"))
+        {
+            position.x += currentMovementSpeed * Time.deltaTime;
+            if (orientation >= -0.3f)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = orientation;
+                transform.localScale = scale;
+            }
+        }
+        if (Input.GetKey("a"))
+        {
+            position.x -= currentMovementSpeed * Time.deltaTime;
+            if (orientation >= 0.3f)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = -orientation;
+                transform.localScale = scale;
+            }
+        }
+       
+        transform.position = position;
+
+    }
     private void Umbrella_Main()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            controller.Success();
-        }
-
-
-            position += right * movementSpeed;
+        Walk();
+        // position += right * movementSpeed;
     }
 }
