@@ -8,27 +8,31 @@ public class main_character_controller : MonoBehaviour
     {
         EFootball = 0,
         EUmbrella = 1,
-        EBallon,
-        EStickThrow
+        EBallon = 2,
+        EStickThrow = 3
     };
 
     public EMinigameState minigameState;
     public float movementSpeed = 10.0f;
     public Vector3 position;
     public Quaternion rotation;
+    private SceneController controller;
 
     Vector3 right = new Vector3(1.0f, 0.0f);
     Vector3 up = new Vector3(0.0f, 1.0f);
 
     public void SetMinigameState(EMinigameState minigameState)
     {
+        Debug.Log("updates State to: " + minigameState);
         this.minigameState = minigameState;
     }
 
 	// Use this for initialization
 	void Start ()
     {
-        minigameState = EMinigameState.EFootball;
+        controller = GameObject.FindGameObjectWithTag("Controller").GetComponent <SceneController>();
+        Debug.Log(controller);
+
 
         //get Position and Rotation Reference
         position = gameObject.transform.position;
@@ -56,6 +60,12 @@ public class main_character_controller : MonoBehaviour
 	}
     private void Umbrella_Main()
     {
-        position += right * movementSpeed;
+        if (Input.GetButtonDown("Fire1"))
+        {
+            controller.Success();
+        }
+
+
+            position += right * movementSpeed;
     }
 }
