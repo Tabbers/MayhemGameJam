@@ -14,6 +14,7 @@ TagManager:
   - Street
   - Car
   - bg
+  - Blob
   layers:
   - Default
   - TransparentFX
