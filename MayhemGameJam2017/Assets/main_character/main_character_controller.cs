@@ -12,7 +12,7 @@ public class main_character_controller : MonoBehaviour
         EBallon = 2,
         EStickThrow = 3
     };
-
+    public bool stop = false;
     public bool RunFromAlone = false;
     public Animator animctrl;
     public EMinigameState minigameState;
@@ -154,7 +154,10 @@ public class main_character_controller : MonoBehaviour
     }
     private void Umbrella_Main()
     {
-        WalkUMbrella();
+        if (!stop)
+        {
+            WalkUMbrella();
+        }
         // position += right * movementSpeed;
     }
 

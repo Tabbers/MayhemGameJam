@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class RainWetness : MonoBehaviour
@@ -7,20 +8,29 @@ public class RainWetness : MonoBehaviour
     public float wetness = 0.0f;
     SceneController controller;
     public Rain rain;
+    Animator animctrl;
+
+    Slider sldr;
 
     // Use this for initialization
     void Start()
     {
         controller = GameObject.FindGameObjectWithTag("Controller").GetComponent<SceneController>();
         rain = GameObject.FindGameObjectWithTag("Rain").GetComponent<Rain>();
+        animctrl = GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<Animator>();
+        sldr = GameObject.FindGameObjectWithTag("UiSlider").GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (wetness > 50.0f)
+        sldr.value = wetness;
+        if (wetness > 10.0f)
         {
-            controller.Failed();
+            GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<main_character_controller>().stop = true;
+            GameObject.FindGameObjectWithTag("MainCharacter").GetComponentInChildren<Umbrella>().stop = true;
+            animctrl.SetBool("Walking", false);
+            Invoke("fail", 2.0f);
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -32,4 +42,9 @@ public class RainWetness : MonoBehaviour
             wetness += 0.1f;
         }
     }
+    void fail()
+    {
+        controller.Failed();
+    }
+
 }

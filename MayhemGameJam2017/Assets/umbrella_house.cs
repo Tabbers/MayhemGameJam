@@ -12,10 +12,13 @@ public class umbrella_house : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("MainCharacter");
         controller = GameObject.FindGameObjectWithTag("Controller").GetComponent<SceneController>();
     }
-	void OnTriggerEnter2D()
+	void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Enterd");
-        controller.LoadNextLevel();
+        if (other.gameObject.tag == player.tag)
+        {
+            Debug.Log("Enterd");
+            controller.LoadNextLevel();
+        }   
     }
 
 	// Update is called once per frame
