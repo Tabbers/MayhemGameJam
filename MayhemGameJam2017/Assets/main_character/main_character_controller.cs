@@ -35,8 +35,7 @@ public class main_character_controller : MonoBehaviour
 	void Start ()
     {
         orientation = transform.localScale.x;
-
-        controller = GameObject.FindGameObjectWithTag("Controller").GetComponent <SceneController>();
+        controller = GameObject.FindGameObjectWithTag("Controller").GetComponent<SceneController>();
         Debug.Log(controller);
 
         animctrl = gameObject.GetComponent<Animator>();
@@ -70,17 +69,21 @@ public class main_character_controller : MonoBehaviour
     {
         if(Input.GetKey("d"))
         {
+            orientation = transform.localScale.x;
+            Debug.Log(orientation);
             animctrl.SetBool("walking", true);
             position.x += currentMovementSpeed * Time.deltaTime;
-            if (orientation >= -0.3f)
+            if (orientation <= -0.3f)
             {
                 Vector3 scale = transform.localScale;
-                scale.x = orientation;
+                scale.x = -orientation;
                 transform.localScale = scale;
             }
         }
         else if (Input.GetKey("a"))
         {
+            orientation = transform.localScale.x;
+            Debug.Log(orientation);
             animctrl.SetBool("walking", true);
             position.x -= currentMovementSpeed * Time.deltaTime;
             if (orientation >= 0.3f)
@@ -98,9 +101,45 @@ public class main_character_controller : MonoBehaviour
         transform.position = position;
 
     }
+    private void WalkUMbrella()
+    {
+        if (Input.GetKey("d"))
+        {
+            orientation = transform.localScale.x;
+            Debug.Log(orientation);
+            animctrl.SetBool("Walking", true);
+            position.x += currentMovementSpeed * Time.deltaTime;
+            if (orientation <= -0.3f)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = -orientation;
+                transform.localScale = scale;
+            }
+        }
+        else if (Input.GetKey("a"))
+        {
+            orientation = transform.localScale.x;
+            Debug.Log(orientation);
+            animctrl.SetBool("Walking", true);
+            position.x -= currentMovementSpeed * Time.deltaTime;
+            if (orientation >= 0.3f)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = -orientation;
+                transform.localScale = scale;
+            }
+        }
+        else
+        {
+            animctrl.SetBool("Walking", false);
+        }
+
+        transform.position = position;
+
+    }
     private void Umbrella_Main()
     {
-        Walk();
+        WalkUMbrella();
         // position += right * movementSpeed;
     }
 
