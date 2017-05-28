@@ -11,7 +11,8 @@ public class main_character_controller : MonoBehaviour
         EBallon = 2,
         EStickThrow = 3
     };
-
+    public bool stop = false;
+    public bool RunFromAlone = false;
     public Animator animctrl;
     public EMinigameState minigameState;
     public float maxMovementSpeed = 10.0f;
@@ -67,7 +68,7 @@ public class main_character_controller : MonoBehaviour
 	}
     private void Walk()
     {
-        if(Input.GetKey("d"))
+        if(Input.GetKey("d") || RunFromAlone)
         {
             orientation = transform.localScale.x;
             Debug.Log(orientation);
@@ -106,7 +107,6 @@ public class main_character_controller : MonoBehaviour
         if (Input.GetKey("d"))
         {
             orientation = transform.localScale.x;
-            Debug.Log(orientation);
             animctrl.SetBool("Walking", true);
             position.x += currentMovementSpeed * Time.deltaTime;
             if (orientation <= -0.3f)
@@ -119,7 +119,6 @@ public class main_character_controller : MonoBehaviour
         else if (Input.GetKey("a"))
         {
             orientation = transform.localScale.x;
-            Debug.Log(orientation);
             animctrl.SetBool("Walking", true);
             position.x -= currentMovementSpeed * Time.deltaTime;
             if (orientation >= 0.3f)
@@ -139,7 +138,10 @@ public class main_character_controller : MonoBehaviour
     }
     private void Umbrella_Main()
     {
-        WalkUMbrella();
+        if (!stop)
+        {
+            WalkUMbrella();
+        }
         // position += right * movementSpeed;
     }
 

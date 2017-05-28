@@ -15,6 +15,10 @@ TagManager:
   - Car
   - Stick
   - bg
+  - Blob
+  - Rain
+  - RainDrop
+  - UiSlider
   layers:
   - Default
   - TransparentFX
