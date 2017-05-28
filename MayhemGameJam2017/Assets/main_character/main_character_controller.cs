@@ -106,7 +106,6 @@ public class main_character_controller : MonoBehaviour
         if (Input.GetKey("d"))
         {
             orientation = transform.localScale.x;
-            Debug.Log(orientation);
             animctrl.SetBool("Walking", true);
             position.x += currentMovementSpeed * Time.deltaTime;
             if (orientation <= -0.3f)
@@ -119,7 +118,6 @@ public class main_character_controller : MonoBehaviour
         else if (Input.GetKey("a"))
         {
             orientation = transform.localScale.x;
-            Debug.Log(orientation);
             animctrl.SetBool("Walking", true);
             position.x -= currentMovementSpeed * Time.deltaTime;
             if (orientation >= 0.3f)

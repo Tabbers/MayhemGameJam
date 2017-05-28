@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Umbrella : MonoBehaviour
 {
-
     void Update()
     {
         Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;

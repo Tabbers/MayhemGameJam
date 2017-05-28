@@ -14,6 +14,8 @@ TagManager:
   - Street
   - Car
   - bg
+  - Rain
+  - RainDrop
   layers:
   - Default
   - TransparentFX
