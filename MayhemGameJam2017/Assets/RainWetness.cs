@@ -44,6 +44,7 @@ public class RainWetness : MonoBehaviour
     }
     void fail()
     {
+        DataStorage.lvl3 = true;
         controller.Failed();
     }
 

@@ -16,8 +16,9 @@ public class umbrella_house : MonoBehaviour {
     {
         if (other.gameObject.tag == player.tag)
         {
+            DataStorage.lvl3 = true;
             Debug.Log("Enterd");
-            controller.LoadNextLevel();
+            controller.Success();// LoadNextLevel();
         }   
     }
 

@@ -71,7 +71,8 @@ public class Ballscene : MonoBehaviour {
         }
         else
         {
-            controller.LoadNextLevel();
+            if (!DataStorage.lvl2)
+                controller.LoadNextLevel();
         }
     }
 

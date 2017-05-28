@@ -49,13 +49,21 @@ public class EndScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        DataStorage.chanceRun = 2;
+        if (DataStorage.chanceRun == 1)
+        {
+            DataStorage.chanceRun = 2;
 
-        gameObject.GetComponent<AudioSource>().Play();
-        Destroy(character.GetComponent<main_character_controller>());//.RunFromAlone = false;
-        Destroy(character.GetComponent<Animator>());
-        character.GetComponent<SpriteRenderer>().sprite = sad;
-        bStart = true;
+            gameObject.GetComponent<AudioSource>().Play();
+            Destroy(character.GetComponent<main_character_controller>());//.RunFromAlone = false;
+            Destroy(character.GetComponent<Animator>());
+            character.GetComponent<SpriteRenderer>().sprite = sad;
+            bStart = true;
+        }
+        else
+        {
+            controller.LoadNextLevel();
+        }
+        
     }
 
     void OnTriggerExit2D(Collider2D collision)

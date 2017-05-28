@@ -42,7 +42,8 @@ public class UmbrellaScene : MonoBehaviour {
         }
         else
         {
-            controller.LoadNextLevel();
+            if (!DataStorage.lvl3)
+                controller.LoadNextLevel();
         }        
     }
 

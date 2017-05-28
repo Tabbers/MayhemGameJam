@@ -86,7 +86,8 @@ public class MainSceneDog : MonoBehaviour
         }
         else
         {
-            controller.LoadNextLevel();
+            if (!DataStorage.lvl1)
+                controller.LoadNextLevel();
         }
     }
 

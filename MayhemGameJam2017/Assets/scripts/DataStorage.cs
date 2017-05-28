@@ -5,13 +5,17 @@ using UnityEngine;
 
 public static class DataStorage
 {
-    public const int maxNumberOfLevels = 9;
+    public const int maxNumberOfLevels = 10;
 
     public static int[] levels = new int[maxNumberOfLevels];
     public static int currentLevel = 0;
 
     public static int laseScene = 0;
     public static int chanceRun = 1;
+
+    public static bool lvl1 = false;
+    public static bool lvl2 = false;
+    public static bool lvl3 = false;
 
     //MAKE THE PROTSGONIST MISERABLE !!!!!!!!!!!!!!!!
     public static long happines = 0;
@@ -27,6 +31,7 @@ public static class DataStorage
         levels[6] = 1;
         levels[7] = 4;
         levels[8] = 1;
+        levels[8] = 5;
     }
 
     static public void Randomise()

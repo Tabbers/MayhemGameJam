@@ -67,6 +67,7 @@ public class FootballBehaviour : MonoBehaviour {
             wontime += deltaTime;
             if (wontime > 2.0f)
             {
+                DataStorage.lvl2 = true;
                 controller.Success();
             }
         }
@@ -75,10 +76,11 @@ public class FootballBehaviour : MonoBehaviour {
             wontime += deltaTime;
             if (wontime > 2.0f)
             {
+                DataStorage.lvl2 = true;
                 controller.Failed();
             }
         }
-        else
+        if (!hasWon)
         {
             switch (currentState)
             {
@@ -151,6 +153,7 @@ public class FootballBehaviour : MonoBehaviour {
                     break;
             }
         }
+        
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -185,7 +188,8 @@ public class FootballBehaviour : MonoBehaviour {
             {
                 child1.MakeHappy();
                 child2.MakeHappy();
-                Destroy(this);
+                //Destroy(this);
+                hasWon = true;
             }
         }
         else if (other.CompareTag("Street"))

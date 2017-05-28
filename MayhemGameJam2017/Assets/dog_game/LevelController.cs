@@ -53,6 +53,7 @@ public class LevelController : MonoBehaviour
 
 	private IEnumerator finish()
 	{
+        DataStorage.lvl1 = true;
 		float timePassed = 0;
 		while (timePassed < 2) 
 		{
