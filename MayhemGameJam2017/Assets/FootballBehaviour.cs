@@ -28,7 +28,12 @@ public class FootballBehaviour : MonoBehaviour {
     public FootballCar car;
     public FootballChild child1;
     public FootballChild child2;
+    public main_character_controller character;
 
+    public AudioClip bounce;
+    public AudioClip pop;
+    
+    private AudioSource player;
     enum FootballStates
     {
         ChildrenPlay,
@@ -44,6 +49,8 @@ public class FootballBehaviour : MonoBehaviour {
     void Start() {
         m_centerPosition = transform.position;
         GetComponent<SpriteRenderer>().sprite = array[index++];
+
+        player = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -122,6 +129,7 @@ public class FootballBehaviour : MonoBehaviour {
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        player.PlayOneShot(bounce);
         if (other.CompareTag("Football_Child1"))
         {
             if (winCount < 3)
@@ -160,6 +168,7 @@ public class FootballBehaviour : MonoBehaviour {
         }
         else if (other.CompareTag("Car"))
         {
+            player.PlayOneShot(pop);
             currentState = FootballStates.Die;
         }
         else if (other.CompareTag("MainCharacter"))
