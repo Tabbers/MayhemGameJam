@@ -12,6 +12,7 @@ public class main_character_controller : MonoBehaviour
         EStickThrow = 3
     };
     public bool stop = false;
+    public bool RunFromAlone = false;
     public Animator animctrl;
     public EMinigameState minigameState;
     public float maxMovementSpeed = 10.0f;
@@ -67,7 +68,7 @@ public class main_character_controller : MonoBehaviour
 	}
     private void Walk()
     {
-        if(Input.GetKey("d"))
+        if(Input.GetKey("d") || RunFromAlone)
         {
             orientation = transform.localScale.x;
             Debug.Log(orientation);
