@@ -12,21 +12,26 @@ public class Dog : MonoBehaviour
 
 	private BoxCollider2D collider;
 	private Animator animator;
+	private AudioSource audioSource;
 	private bool hasCollided = false;
 	private bool collidedWithStick = false;
-	private bool collidedWithPlayer = false;
 
 	// Use this for initialization
 	void Start ()
 	{
 		collider = gameObject.GetComponent<BoxCollider2D>();
 		animator = gameObject.GetComponent<Animator>();
+		audioSource = gameObject.GetComponent<AudioSource> ();
 	}
 
 	public IEnumerator followStick()
 	{
 		if (stickTransform != null)
 		{
+			audioSource.Play ();
+			animator.SetBool ("Sit", false);
+			animator.SetBool ("Sad", false);
+			transform.rotation = Quaternion.identity;
 			while (transform.position.x > stickTransform.position.x) {yield return null;}
 			while (!hasCollided && transform.position.x < stickTransform.position.x && !hasCollided)
 			{
@@ -48,7 +53,7 @@ public class Dog : MonoBehaviour
 		transform.Rotate (new Vector3 (0, 180));
 		stickTransform.position = mouthTransform.position;
 
-		while (!collidedWithPlayer) 
+		while (transform.position.x > -4f) 
 		{
 			animator.SetBool ("IsWalking", true);
 			transform.position = new Vector3 (transform.position.x - Time.deltaTime * speed, transform.position.y);
@@ -60,9 +65,17 @@ public class Dog : MonoBehaviour
 		transform.rotation = Quaternion.Euler (Vector3.up);
 		transform.Rotate (new Vector3 (0, 180, 0));
 		Destroy (stickTransform.gameObject);
+		hasCollided = false;
+		collidedWithStick = false;
+		levelController.timesStickReturned++;
 
-		if (levelController.tries > 0)
+		if (levelController.tries <= 0 && levelController.timesStickReturned < 3) 
 		{
+			animator.SetBool ("Sad", true);
+		} 
+		if (levelController.tries > 0 && levelController.timesStickReturned < 3)
+		{
+			levelController.startObstacleTry = Mathf.RoundToInt(Random.value * 2);
 			levelController.enableThrowing ();
 		}
 
@@ -72,7 +85,7 @@ public class Dog : MonoBehaviour
 	private IEnumerator returnToPlayerWithoutStick()
 	{
 		transform.Rotate (new Vector3 (0, 180, 0));
-		while (!collidedWithPlayer) 
+		while (transform.position.x > -4f) 
 		{
 			animator.SetBool ("IsWalking", true);
 			transform.position = new Vector3 (transform.position.x - Time.deltaTime * speed, transform.position.y);
@@ -88,9 +101,14 @@ public class Dog : MonoBehaviour
 		} 
 		else 
 		{
+			levelController.startObstacleTry = Mathf.RoundToInt(Random.value * 2);
+			Debug.Log (levelController.startObstacleTry);
 			levelController.enableThrowing ();
 		}
 		Destroy (stickTransform.gameObject);
+		hasCollided = false;
+		collidedWithStick = false;
+
 
 		yield return null;
 	}
@@ -103,10 +121,7 @@ public class Dog : MonoBehaviour
 			{
 				collidedWithStick = true;
 				collision.collider.enabled = false;
-			}
-			if (collision.gameObject.tag == "MainCharacter")
-			{
-				collidedWithPlayer = true;
+				Destroy (collision.rigidbody);
 			}
 			hasCollided = true;
 		}

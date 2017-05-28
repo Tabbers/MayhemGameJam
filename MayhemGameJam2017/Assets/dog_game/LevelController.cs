@@ -9,14 +9,31 @@ public class LevelController : MonoBehaviour
 	public MoveSlider moveSlider;
 	public ArrowMovement arrowMovement;
 	public Dog dog;
-	public int tries = 3;
+
+	public int startObstacleTry = 1;
+	public GameObject[] obstacleTries;
+
+	public Counter counter;
+	public int tries = 5;
+	[HideInInspector]
+	public int timesStickReturned = 0;
 
 	private bool stickShot = false;
+	private bool finished = false;
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetMouseButtonDown (0) && !stickShot && tries >= 0)
+		for (int i = 0; i < obstacleTries.Length; i++) 
+		{
+			if (i == startObstacleTry)
+				obstacleTries [i].SetActive (true);
+			else
+				obstacleTries [i].SetActive (false);
+		}
+
+		counter.setNumber (timesStickReturned);
+		if (Input.GetMouseButtonDown (0) && !stickShot && tries >= 0 && timesStickReturned < 3)
 		{
 			tries--;
 			arrowMovement.gameObject.SetActive (false);
@@ -24,6 +41,36 @@ public class LevelController : MonoBehaviour
 			playerAnimator.SetTrigger ("throw");
 			StartCoroutine (stickThrowAnimation ());
 		}
+
+		if (timesStickReturned == 3 || tries <= 0 && !finished) 
+		{
+			finished = true;
+			StartCoroutine (finish ());
+		}
+
+
+	}
+
+	private IEnumerator finish()
+	{
+		float timePassed = 0;
+		while (timePassed < 2) 
+		{
+			timePassed += Time.deltaTime;
+			yield return null;
+		}
+		SceneController sceneController = GameObject.FindGameObjectWithTag ("Controller").GetComponent<SceneController>();
+
+		if (timesStickReturned == 3) 
+		{
+			sceneController.Success ();
+		}
+		else 
+		{
+			sceneController.Failed ();
+		}
+			
+		yield return null;
 	}
 
 	public void enableThrowing()
