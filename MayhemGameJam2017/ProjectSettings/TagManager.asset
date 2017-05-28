@@ -16,6 +16,7 @@ TagManager:
   - bg
   - Rain
   - RainDrop
+  - UiSlider
   layers:
   - Default
   - TransparentFX
