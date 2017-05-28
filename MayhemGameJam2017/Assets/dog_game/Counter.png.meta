@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 2425b6359b8bf4b73960df2c8e2d3b01
-timeCreated: 1495966515
+guid: edad7316887614910918788a4989ad64
+timeCreated: 1495966785
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: wedelanimation Kopie_0
-    21300002: wedelanimation Kopie_1
-    21300004: wedelanimation Kopie_2
+    21300000: Counter_0
+    21300002: Counter_1
+    21300004: Counter_2
+    21300006: Counter_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -73,39 +74,52 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wedelanimation Kopie_0
+      name: Counter_0
       rect:
         serializedVersion: 2
-        x: 226
-        y: 34
-        width: 122
-        height: 131
+        x: 32
+        y: 135
+        width: 73
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: wedelanimation Kopie_1
+      name: Counter_1
       rect:
         serializedVersion: 2
-        x: 396
-        y: 36
-        width: 115
-        height: 126
+        x: 130
+        y: 140
+        width: 90
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: wedelanimation Kopie_2
+      name: Counter_2
       rect:
         serializedVersion: 2
-        x: 573
-        y: 33
-        width: 109
-        height: 132
+        x: 241
+        y: 140
+        width: 50
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Counter_3
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 133
+        width: 78
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
