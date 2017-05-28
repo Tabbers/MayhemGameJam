@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ballscene : MonoBehaviour {
-
+    private SceneController controller;
     bool bStart = false;
     float pastTime = 0.0f;
     bool bSound = true;
@@ -23,6 +23,18 @@ public class Ballscene : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = GetComponent<AudioSource>();
+        controller = GameObject.FindGameObjectWithTag("Controller").GetComponent<SceneController>();
+        var collider = GetComponents<BoxCollider2D>();
+        if (DataStorage.chanceRun == 1)
+        {
+            collider[0].enabled = true;
+            collider[1].enabled = false;
+        }
+        else
+        {
+            collider[0].enabled = false;
+            collider[1].enabled = true;
+        }
     }
 	
 	// Update is called once per frame
@@ -46,12 +58,21 @@ public class Ballscene : MonoBehaviour {
                 child2.GetComponent<SpriteRenderer>().sprite = child2Sad;
                 football.GetComponent<SpriteRenderer>().sprite = ballSad;
             }
+
         }
 	}
 
     void OnTriggerEnter2D(Collider2D other)
     {   
-        bStart = true;
+        
+        if (DataStorage.chanceRun == 1)
+        {
+            bStart = true;
+        }
+        else
+        {
+            controller.LoadNextLevel();
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)

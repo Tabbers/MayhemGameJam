@@ -17,6 +17,7 @@ TagManager:
   - Blob
   - Rain
   - RainDrop
+  - Loader
   layers:
   - Default
   - TransparentFX

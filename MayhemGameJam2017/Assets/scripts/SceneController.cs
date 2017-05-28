@@ -19,7 +19,7 @@ public class SceneController : MonoBehaviour {
             Debug.Log("preserved" + gameObject.name);
             //if not, set instance to this
             instance = this;
-            DataStorage.Randomise();
+            DataStorage.MyShit();
             SceneManager.sceneLoaded += OnLevelFinishedLoading;
             DontDestroyOnLoad(gameObject);            
         }
@@ -44,11 +44,41 @@ public class SceneController : MonoBehaviour {
             main_character_controller characterController = player.GetComponent<main_character_controller>();
             switch (currentScene.buildIndex)
             {
-                case 1:                    
+                case 1:
+                    characterController.SetMinigameState(main_character_controller.EMinigameState.EMainScene);
+                    if (DataStorage.laseScene == 2)
+                    {
+                        var dog = GameObject.Find("DogScene");
+                        Vector3 pos = player.transform.position;
+                        pos.x = dog.transform.position.x;
+                        player.transform.position = pos;
+                    }
+                    else if (DataStorage.laseScene == 3)
+                    {
+                        GameObject dog = GameObject.Find("BallScene");
+                        dog.GetComponent<BoxCollider2D>().enabled = false;
+                        Vector3 pos = player.transform.position;
+                        pos.x = dog.transform.position.x;
+                        player.transform.position = pos;
+                    }
+                    else if (DataStorage.laseScene == 4)
+                    {
+                        GameObject dog = GameObject.Find("UmbrellaScene");
+                        dog.GetComponent<BoxCollider2D>().enabled = false;
+                        Vector3 pos = player.transform.position;
+                        pos.x = dog.transform.position.x;
+                        player.transform.position = pos;
+                    }
+
+                        break;
+                case 4:                    
                     characterController.SetMinigameState(main_character_controller.EMinigameState.EUmbrella);
                     break;
-                case 2:
+                case 3:
                     characterController.SetMinigameState(main_character_controller.EMinigameState.EFootball);
+                    break;
+                case 2:
+                    characterController.SetMinigameState(main_character_controller.EMinigameState.EStickThrow);
                     break;
                 default:
                     break;
@@ -79,10 +109,13 @@ public class SceneController : MonoBehaviour {
     }
     public void Failed()
     {
-
+        DataStorage.laseScene = currentScene.buildIndex;
+        LoadNextLevel();
     }
     public void Success()
     {
+        DataStorage.laseScene = currentScene.buildIndex;
+        DataStorage.happines++;
         LoadNextLevel();
     }
     

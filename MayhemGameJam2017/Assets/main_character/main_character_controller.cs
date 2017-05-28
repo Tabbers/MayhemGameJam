@@ -6,6 +6,7 @@ public class main_character_controller : MonoBehaviour
 {
     public enum EMinigameState : int
     {
+        EMainScene = 9,
         EFootball = 0,
         EUmbrella = 1,
         EBallon = 2,
@@ -26,6 +27,9 @@ public class main_character_controller : MonoBehaviour
     Vector3 right = new Vector3(1.0f, 0.0f);
     Vector3 up = new Vector3(0.0f, 1.0f);
 
+    public AudioClip goodSound;
+    public AudioClip badSound;
+
     public void SetMinigameState(EMinigameState minigameState)
     {
         Debug.Log("updates State to: " + minigameState);
@@ -44,6 +48,15 @@ public class main_character_controller : MonoBehaviour
         //get Position and Rotation Reference
         position = gameObject.transform.position;
         rotation = gameObject.transform.rotation;
+
+        if (DataStorage.chanceRun == 1)
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(badSound);
+        }
+        else
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(goodSound);
+        }
     }
 
     // Update is called once per frame
@@ -51,6 +64,9 @@ public class main_character_controller : MonoBehaviour
     {
 		switch(minigameState)
         {
+            case EMinigameState.EMainScene:
+                Walk();
+                break;
             case EMinigameState.EFootball:
                 Football();
                 break;
